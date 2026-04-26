@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Centro Educativo Horizontes | La Familia Horizontes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amarillo: #F5B710;
+      --amarillo-claro: #FEF3C7;
+      --amarillo-oscuro: #d49a00;
+      --rojo:    #E73320;
+      --azul:    #004977;
+      --azul-claro: #e8f1f8;
+      --texto:   #1c2b3a;
+      --gris:    #5f6b7a;
+      --crema:   #FFFBF0;
+      --blanco:  #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--texto);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* ──────────────── TOP CONTACT BAR ──────────────── */
+    .topbar {
+      background: var(--azul);
+      color: rgba(255,255,255,.8);
+      font-size: .8rem;
+      font-weight: 700;
+      padding: .6rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .topbar-contacts { display: flex; gap: 1.5rem; align-items: center; }
+    .topbar a { color: rgba(255,255,255,.8); text-decoration: none; transition: color .2s; }
+    .topbar a:hover { color: var(--amarillo); }
+    .topbar-social { display: flex; gap: .75rem; align-items: center; }
+    .topbar-social a { display: flex; align-items: center; justify-content: center; }
+    .topbar-social svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+
+    /* ──────────────── NAV ──────────────── */
+    nav {
+      background: #fff;
+      border-bottom: 3px solid var(--amarillo);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 78px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,.06);
+    }
+    .nav-logo img { height: 54px; }
+    .mobile-menu-3 { display: contents; }
+    .nav-links-3 { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links-3 a {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--texto);
+      text-decoration: none;
+      padding: .3rem 0;
+      position: relative;
+      transition: color .2s;
+    }
+    .nav-links-3 a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 100%;
+      height: 2px;
+      background: var(--amarillo);
+      transition: right .2s;
+    }
+    .nav-links-3 a:hover { color: var(--azul); }
+    .nav-links-3 a:hover::after { right: 0; }
+    .nav-cta-3 {
+      background: var(--amarillo);
+      color: var(--texto);
+      font-size: .85rem;
+      font-weight: 800;
+      padding: .6rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+      white-space: nowrap;
+    }
+    .nav-cta-3:hover { background: var(--amarillo-oscuro); transform: scale(1.03); }
+    .hamburger-3 {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+      background: none; border: none; padding: 4px;
+      position: relative; z-index: 260;
+    }
+    .hamburger-3 span {
+      width: 22px; height: 2.5px; background: var(--texto); border-radius: 2px;
+      display: block;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+
+    /* ──────────────── HERO ──────────────── */
+    .hero {
+      background: var(--crema);
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 5% 0;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: #fff;
+      clip-path: ellipse(55% 100% at 50% 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--amarillo);
+      color: var(--texto);
+      font-size: .78rem;
+      font-weight: 800;
+      padding: .4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-pill::before { content: '✦'; }
+    .hero-title-3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--texto);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title-3 .color-azul { color: var(--azul); }
+    .hero-title-3 .color-rojo { color: var(--rojo); }
+    .hero-desc-3 {
+      font-size: 1.05rem;
+      color: var(--gris);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .btn-amarillo {
+      background: var(--amarillo);
+      color: var(--texto);
+      font-size: .92rem;
+      font-weight: 800;
+      padding: .85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+    .btn-amarillo:hover { background: var(--amarillo-oscuro); transform: translateY(-2px); }
+    .btn-azul-outline {
+      border: 2px solid var(--azul);
+      color: var(--azul);
+      font-size: .92rem;
+      font-weight: 800;
+      padding: .85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+      background: var(--blanco);
+    }
+    .btn-azul-outline:hover { background: var(--azul); color: #fff; }
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: .85rem;
+      color: var(--gris);
+      font-weight: 600;
+    }
+    .trust-dots {
+      display: flex;
+    }
+    .trust-dot {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      margin-right: -10px;
+      overflow: hidden;
+      background: var(--azul);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .trust-dot:nth-child(2) { background: var(--rojo); }
+    .trust-dot:nth-child(3) { background: var(--amarillo-oscuro); color: var(--texto); }
+    .hero-img-col { position: relative; padding-bottom: 4rem; }
+    .hero-img-main-3 {
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.12);
+      position: relative;
+      z-index: 1;
+    }
+    .hero-img-main-3 img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    .hero-float-card {
+      position: absolute;
+      bottom: 2rem;
+      left: -1.5rem;
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+      z-index: 2;
+      max-width: 220px;
+    }
+    .hero-float-card .card-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      color: var(--azul);
+      line-height: 1;
+    }
+    .hero-float-card .card-label {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--gris);
+      margin-top: .2rem;
+    }
+    .hero-float-card-2 {
+      position: absolute;
+      top: 1.5rem;
+      right: -1rem;
+      background: var(--amarillo);
+      border-radius: 16px;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 8px 30px rgba(245,183,16,.4);
+      z-index: 2;
+    }
+    .hero-float-card-2 p { font-size: .78rem; font-weight: 800; color: var(--texto); }
+    .hero-float-card-2 strong { font-size: 1rem; display: block; }
+    .hero-deco {
+      position: absolute;
+      bottom: 3rem;
+      right: 0;
+      width: 80px;
+      height: 80px;
+      background: var(--rojo);
+      border-radius: 50%;
+      opacity: .15;
+    }
+    .hero-deco-2 {
+      position: absolute;
+      top: -1rem;
+      left: 15%;
+      width: 50px;
+      height: 50px;
+      background: var(--amarillo);
+      border-radius: 50%;
+      opacity: .4;
+    }
+
+    /* ──────────────── SECTION DEFAULTS ──────────────── */
+    section { padding: 5rem 5%; }
+    .container-3 { max-width: 1200px; margin: 0 auto; }
+    .eyebrow-3 {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--rojo);
+      margin-bottom: 1rem;
+    }
+    .eyebrow-3::before { content: '●'; font-size: .5rem; }
+    .title-3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      color: var(--texto);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .desc-3 { font-size: 1rem; color: var(--gris); line-height: 1.75; max-width: 540px; }
+
+    /* ──────────────── ACERCA ──────────────── */
+    #acerca { background: #fff; }
+    .acerca-3-header { text-align: center; margin-bottom: 3rem; }
+    .acerca-3-header .desc-3 { margin: 1rem auto 0; }
+    .acerca-stats-band-3 {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--amarillo-claro);
+      border-radius: 16px; overflow: hidden;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.05);
+    }
+    .acerca-stat-item-3 {
+      background: #fff; padding: 2rem 1.5rem; text-align: center;
+      transition: background .25s;
+    }
+    .acerca-stat-item-3:hover { background: var(--crema); }
+    .acerca-stat-num-3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem; color: var(--azul); line-height: 1; margin-bottom: .4rem;
+    }
+    .acerca-stat-label-3 { font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--gris); }
+    .acerca-banner-3 {
+      width: 100%; aspect-ratio: 21/8; overflow: hidden;
+      position: relative; margin-bottom: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.1);
+    }
+    .acerca-banner-3 img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+    .acerca-banner-3-content {
+      position: absolute; left: 2.5rem; bottom: 2rem; max-width: 500px;
+    }
+    .acerca-banner-3-quote {
+      font-size: clamp(.75rem, 2vw, 1rem);
+      font-style: italic;
+      color: var(--blanco);
+      line-height: 1.55;
+      background: rgba(0,73,119,.82);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+    }
+    .acerca-pilares-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+    .pilar-card-a3 {
+      background: var(--crema); border-radius: 20px; padding: 2rem;
+      transition: transform .3s, box-shadow .3s, border-color .25s;
+      border: 2px solid transparent;
+    }
+    .pilar-card-a3:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.07); border-color: var(--amarillo); }
+    .pilar-icon-a3 {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: var(--amarillo); display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1.25rem;
+    }
+    .pilar-title-a3 { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--texto); margin-bottom: .5rem; }
+    .pilar-desc-a3 { font-size: .84rem; color: var(--gris); line-height: 1.65; }
+    .acerca-3-cta { text-align: center; }
+
+    /* ──────────────── NIVELES ──────────────── */
+    #niveles { background: var(--azul-claro); }
+    .niveles-intro-3 { text-align: center; margin-bottom: 3.5rem; }
+    .niveles-intro-3 .desc-3 { margin: 0 auto; }
+    .niveles-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .nivel-card-3 {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .nivel-card-3:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,.12); }
+    .nivel-img-3 { position: relative; overflow: hidden; aspect-ratio: 4/3; }
+    .nivel-img-3 img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+    .nivel-card-3:hover .nivel-img-3 img { transform: scale(1.05); }
+    .nivel-ribbon {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .3rem .9rem;
+      border-radius: 50px;
+    }
+    .nr-pre { background: var(--amarillo); color: var(--texto); }
+    .nr-pri { background: var(--rojo); color: #fff; }
+    .nr-sec { background: var(--azul); color: #fff; }
+    .nivel-body-3 { padding: 2rem; }
+    .nivel-name-3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--texto);
+      margin-bottom: .25rem;
+    }
+    .nivel-grades-3 {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--gris);
+      margin-bottom: 1rem;
+    }
+    .nivel-horario-3 {
+      background: var(--crema);
+      border-radius: 8px;
+      padding: .5rem .75rem;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--texto);
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .nivel-horario-3::before { content: '🕐'; }
+    .nivel-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-bottom: 1.5rem;
+    }
+    .ntag {
+      font-size: .72rem;
+      font-weight: 700;
+      padding: .25rem .7rem;
+      border-radius: 50px;
+      background: var(--azul-claro);
+      color: var(--azul);
+    }
+    .nivel-link-3 {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .85rem;
+      font-weight: 800;
+      color: var(--rojo);
+      text-decoration: none;
+    }
+    .nivel-link-3::after { content: '→'; transition: transform .2s; }
+    .nivel-card-3:hover .nivel-link-3::after { transform: translateX(4px); }
+
+    /* ──────────────── RAZONES ──────────────── */
+    #razones { padding: 6rem 5%; }
+    .razones-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .razones-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem; }
+    .razones-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .rv-img {
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .rv-img img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+    .rv-stat {
+      background: var(--amarillo);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1;
+      padding: 1rem;
+    }
+    .rv-stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      color: var(--texto);
+      line-height: 1;
+    }
+    .rv-stat-label { font-size: .78rem; font-weight: 800; color: var(--texto); text-align: center; margin-top: .3rem; }
+    .rv-img-tall {
+      border-radius: 16px;
+      overflow: hidden;
+      grid-row: span 2;
+    }
+    .rv-img-tall img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .razones-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .razon-card {
+      background: var(--crema);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 2px solid transparent;
+      transition: border-color .25s, background .25s;
+    }
+    .razon-card:hover { border-color: var(--amarillo); background: #fff; }
+    .razon-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .ri-amarillo { background: var(--amarillo); }
+    .ri-azul { background: var(--azul-claro); }
+    .ri-rojo { background: #fde8e6; }
+    .razon-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--texto);
+      margin-bottom: .5rem;
+    }
+    .razon-desc { font-size: .875rem; color: var(--gris); line-height: 1.65; }
+
+    /* ──────────────── MISION / VISION ──────────────── */
+    .mision-band {
+      background: var(--azul);
+      padding: 5rem 5%;
+      position: relative;
+      overflow: hidden;
+    }
+    .mision-band::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(245,183,16,.12);
+    }
+    .mision-band::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: 10%;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(231,51,32,.1);
+    }
+    .mision-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+    .mv-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+    .mv-label {
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--amarillo);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .mv-label::before { content: ''; width: 24px; height: 2px; background: var(--amarillo); }
+    .mv-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: rgba(255,255,255,.9);
+      line-height: 1.6;
+    }
+
+    /* ──────────────── VALORES ──────────────── */
+    #valores { background: var(--crema); }
+    .valores-intro-3 { text-align: center; margin-bottom: 3.5rem; }
+    .valores-intro-3 .desc-3 { margin: 0 auto; }
+    .valores-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .valor-card-3 {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2.5rem 1.75rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,.05);
+      transition: transform .3s;
+    }
+    .valor-card-3:hover { transform: translateY(-4px); }
+    .valor-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .valor-name-3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--texto);
+      margin-bottom: .5rem;
+    }
+    .valor-badge {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 800;
+      padding: .2rem .7rem;
+      border-radius: 50px;
+      margin-bottom: .75rem;
+    }
+    .vb-1 { background: var(--amarillo-claro); color: var(--amarillo-oscuro); }
+    .vb-2 { background: var(--azul-claro); color: var(--azul); }
+    .vb-3 { background: #fde8e6; color: var(--rojo); }
+    .vb-4 { background: #f0fdf4; color: #16a34a; }
+    .valor-desc-3 { font-size: .85rem; color: var(--gris); line-height: 1.65; }
+
+
+
+    /* ──────────────── CERTIFICACIONES ──────────────── */
+    .certs-band { background: var(--azul-claro); padding: 5rem 5%; }
+    .certs-inner { max-width: 1200px; margin: 0 auto; }
+    .certs-intro { text-align: center; margin-bottom: 3rem; }
+    .certs-intro .desc-3 { margin: 0 auto; }
+    .certs-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .cert-card-3 {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,.05);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .cert-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+    .cb-1 { background: var(--amarillo-claro); }
+    .cb-2 { background: var(--azul-claro); }
+    .cb-3 { background: #fde8e6; }
+    .cert-title-3 {
+      font-size: .95rem;
+      font-weight: 800;
+      color: var(--texto);
+      line-height: 1.35;
+    }
+    .cert-desc-3 { font-size: .85rem; color: var(--gris); line-height: 1.65; }
+
+    /* ──────────────── ALIADOS ──────────────── */
+    #aliados {
+      padding: 3.5rem 5%;
+      background: #fff;
+      border-top: 1px solid var(--amarillo-claro);
+      border-bottom: 1px solid var(--amarillo-claro);
+    }
+    .aliados-ticker-wrap-3 {
+      overflow: hidden;
+      margin-top: 2rem;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .aliados-ticker-3 { display: flex; width: max-content; animation: ticker-scroll-3 22s linear infinite; }
+    .aliados-ticker-3:hover { animation-play-state: paused; }
+    .aliado-logo-item-3 {
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 4rem; height: 64px; flex-shrink: 0;
+      filter: grayscale(1) opacity(.45);
+      transition: filter .4s;
+    }
+    .aliados-ticker-3:hover .aliado-logo-item-3 { filter: grayscale(0) opacity(1); }
+    .aliado-logo-item-3 img { height: 48px; width: auto; object-fit: contain; display: block; }
+    @keyframes ticker-scroll-3 {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ──────────────── CTA FINAL ──────────────── */
+    .cta-final {
+      background: var(--amarillo);
+      padding: 6rem 5%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-final::before {
+      content: '✦';
+      position: absolute;
+      font-size: 15rem;
+      color: rgba(255,255,255,.2);
+      top: -3rem;
+      left: 5%;
+      line-height: 1;
+    }
+    .cta-final::after {
+      content: '✦';
+      position: absolute;
+      font-size: 10rem;
+      color: rgba(255,255,255,.2);
+      bottom: -2rem;
+      right: 8%;
+      line-height: 1;
+    }
+    .cta-final-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .cta-final-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      color: var(--texto);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+    .cta-final-desc { font-size: 1.05rem; color: rgba(28,43,58,.7); margin-bottom: 2.5rem; line-height: 1.7; }
+    .cta-final-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-azul {
+      background: var(--azul);
+      color: #fff;
+      font-size: .92rem;
+      font-weight: 800;
+      padding: .9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .btn-azul:hover { background: #003660; }
+    .btn-rojo-outline {
+      border: 2px solid var(--rojo);
+      color: var(--rojo);
+      font-size: .92rem;
+      font-weight: 800;
+      padding: .9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .btn-rojo-outline:hover { background: var(--rojo); color: #fff; }
+
+    /* ──────────────── CONTACTO ──────────────── */
+    #contacto { background: #fff; }
+    .contacto-3-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; }
+    .contacto-3-info { display: flex; flex-direction: column; gap: 2rem; }
+    .info-item-3 { display: flex; flex-direction: column; gap: .3rem; }
+    .info-label-3 {
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--amarillo-oscuro);
+    }
+    .info-value-3 { font-size: 1rem; font-weight: 700; color: var(--texto); }
+    .info-value-3 a { color: var(--texto); text-decoration: none; }
+    .info-value-3 a:hover { color: var(--rojo); }
+    .social-bubbles { display: flex; gap: .75rem; flex-wrap: wrap; }
+    .social-bubble {
+      width: 46px; height: 46px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--azul-claro);
+      border-radius: 50%;
+      text-decoration: none;
+      color: var(--azul);
+      transition: background .2s, color .2s, transform .2s;
+      flex-shrink: 0;
+    }
+    .social-bubble svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+    .social-bubble:hover { transform: translateY(-3px); }
+    .social-bubble.sb-facebook:hover  { background: #1877F2; color: #fff; }
+    .social-bubble.sb-instagram:hover { background: #E1306C; color: #fff; }
+    .social-bubble.sb-youtube:hover   { background: #FF0000; color: #fff; }
+    .map-rounded { border-radius: 20px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.08); }
+    .map-rounded iframe { width: 100%; height: 420px; border: 0; display: block; }
+
+    /* ──────────────── FOOTER ──────────────── */
+    footer {
+      background: var(--azul);
+      color: rgba(255,255,255,.7);
+      padding: 4rem 5% 2rem;
+    }
+    .footer-3-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      margin-bottom: 2rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .f3-logo img { height: 50px; filter: brightness(0) invert(1); margin-bottom: 1.2rem; }
+    .f3-about { font-size: .875rem; line-height: 1.7; }
+    .f3-col-h {
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--amarillo);
+      margin-bottom: 1.2rem;
+    }
+    .f3-links { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .f3-links a { color: rgba(255,255,255,.65); text-decoration: none; font-size: .875rem; font-weight: 600; transition: color .2s; }
+    .f3-links a:hover { color: var(--amarillo); }
+    .footer-3-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .8rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ──────────────── RESPONSIVE ──────────────── */
+    body.menu-open { overflow: hidden; }
+
+    @media (max-width: 1000px) {
+      #nav-3.menu-open {
+        background: transparent;
+        box-shadow: none;
+        border-bottom-color: transparent;
+      }
+      #nav-3.menu-open .hamburger-3 span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      #nav-3.menu-open .hamburger-3 span:nth-child(2) { opacity: 0; }
+      #nav-3.menu-open .hamburger-3 span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .nav-logo { position: relative; z-index: 260; }
+
+      .mobile-menu-3 {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 7rem 2rem 2.5rem;
+        background:
+          radial-gradient(circle at top, rgba(245,183,16,.2), transparent 30%),
+          linear-gradient(135deg, rgba(255,255,255,.98) 0%, rgba(255,251,240,.98) 100%);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity .28s ease, visibility .28s ease;
+        z-index: 240;
+      }
+      #nav-3.menu-open .mobile-menu-3 {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .nav-links-3 {
+        width: min(100%, 420px);
+        flex-direction: column;
+        align-items: center;
+        gap: .35rem;
+      }
+      .nav-links-3 li { width: 100%; }
+      .nav-links-3 a {
+        display: block;
+        padding: .95rem 1rem;
+        color: var(--texto);
+        font-size: clamp(1.15rem, 3.5vw, 1.6rem);
+        font-weight: 700;
+        text-align: center;
+      }
+      .nav-links-3 a::after { display: none; }
+      .nav-cta-3 {
+        margin-top: 1rem;
+        padding: .85rem 2.5rem;
+        font-size: 1rem;
+      }
+      #nav-3.menu-open .nav-links-3,
+      #nav-3.menu-open .nav-cta-3 { display: flex; }
+
+      .hamburger-3 { display: flex; }
+
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-img-col { display: none; }
+      .hero { padding-bottom: 3rem; }
+      .hero::after { display: none; }
+      .acerca-stats-band-3 { grid-template-columns: 1fr; }
+      .acerca-pilares-3 { grid-template-columns: 1fr; }
+      .acerca-banner-3 { aspect-ratio: 16/9; }
+      .acerca-banner-3-content { left: 1.5rem; bottom: 1.5rem; }
+      .niveles-row { grid-template-columns: 1fr; }
+      .razones-header { grid-template-columns: 1fr; }
+      .razones-visual { display: none; }
+      .razones-grid { grid-template-columns: 1fr 1fr; }
+      .mision-inner { grid-template-columns: 1fr; }
+      .valores-row { grid-template-columns: repeat(2, 1fr); }
+
+      .certs-row { grid-template-columns: 1fr; }
+      .contacto-3-inner { grid-template-columns: 1fr; }
+      .footer-3-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 640px) {
+      .topbar { font-size: .72rem; }
+      .razones-grid { grid-template-columns: 1fr; }
+      .valores-row { grid-template-columns: 1fr; }
+      .footer-3-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-3-bottom { flex-direction: column; gap: .5rem; text-align: center; }
+      .hero-buttons { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-contacts">
+      <a href="tel:+50624381611">📞 +506 2438-1611</a>
+      <a href="https://wa.me/50684381611" target="_blank">💬 +506 8438-1611 (WhatsApp)</a>
+    </div>
+    <div class="topbar-social">
+      <a href="https://www.facebook.com/share/1DSRCYP12W/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.446 18.627 0 12 0S0 5.446 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.954h-1.514c-1.491 0-1.956.932-1.956 1.887v2.281h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/horizontes_cedhori" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@centroeducativohorizontes496" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav-3">
+    <div class="nav-logo">
+      <a href="#"><img src="logo.png" alt="Centro Educativo Horizontes" /></a>
+    </div>
+
+    <div class="mobile-menu-3" id="nav-mobile-3" aria-hidden="true">
+      <ul class="nav-links-3">
+        <li><a href="#acerca">¿Quiénes somos?</a></li>
+        <li><a href="#niveles">Niveles</a></li>
+        <li><a href="#razones">¿Por qué Horizontes?</a></li>
+        <li><a href="#valores">Valores</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="https://wa.me/50684381611" class="nav-cta-3" target="_blank">📩 Solicitar información</a>
+    </div>
+
+    <button class="hamburger-3" id="hamburger-3b" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile-3">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-pill">Familia Horizontes · Desde 1996</div>
+        <h1 class="hero-title-3">
+          Un hogar donde<br>
+          <span class="color-azul">aprender</span>,<br>
+          crecer y <span class="color-rojo">brillar</span>
+        </h1>
+        <p class="hero-desc-3">Educación privada integral para su hijo o hija, desde Preescolar hasta Undécimo nivel, en un ambiente seguro, cercano y lleno de oportunidades.</p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/50684381611" class="btn-amarillo" target="_blank">💬 Contáctenos ahora</a>
+          <a href="#niveles" class="btn-azul-outline">Conocer los niveles</a>
+        </div>
+
+      </div>
+      <div class="hero-img-col">
+        <div class="hero-deco-2"></div>
+        <div class="hero-img-main-3">
+          <img src="todos.png" alt="Estudiantes del Centro Educativo Horizontes" />
+        </div>
+        <div class="hero-float-card">
+          <div class="card-num">30+</div>
+          <div class="card-label">años formando estudiantes con valores</div>
+        </div>
+        <div class="hero-deco"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACERCA -->
+  <section id="acerca">
+    <div class="container-3">
+      <div class="acerca-3-header">
+        <div class="eyebrow-3">¿Quiénes somos?</div>
+        <h2 class="title-3">Tres décadas<br>formando generaciones</h2>
+        <p class="desc-3">Desde 1996, el Centro Educativo Horizontes ofrece educación privada con calidad, excelencia e innovación, acompañando a sus estudiantes desde Preescolar hasta Undécimo nivel en San Antonio del Tejar.</p>
+      </div>
+
+      <div class="acerca-stats-band-3">
+        <div class="acerca-stat-item-3">
+          <div class="acerca-stat-num-3">1996</div>
+          <div class="acerca-stat-label-3">Año de fundación</div>
+        </div>
+        <div class="acerca-stat-item-3">
+          <div class="acerca-stat-num-3">30+</div>
+          <div class="acerca-stat-label-3">Años de trayectoria</div>
+        </div>
+        <div class="acerca-stat-item-3">
+          <div class="acerca-stat-num-3">Pre K – 11°</div>
+          <div class="acerca-stat-label-3">Cobertura educativa completa</div>
+        </div>
+      </div>
+
+      <div class="acerca-banner-3">
+        <img src="lideres.png" alt="Comunidad educativa Centro Educativo Horizontes" />
+        <div class="acerca-banner-3-content">
+          <p class="acerca-banner-3-quote">"Fundado por Minor Fonseca Esquivel y Vilma Solís Jiménez, nuestro modelo educativo integra calidad académica, idiomas, tecnología, innovación y valores, con acompañamiento cercano a las familias."</p>
+        </div>
+      </div>
+
+      <div class="acerca-pilares-3">
+        <div class="pilar-card-a3">
+          <div class="pilar-icon-a3">👩‍🏫</div>
+          <div class="pilar-title-a3">Docentes comprometidos</div>
+          <p class="pilar-desc-a3">Profesionales con actualización constante, metodologías efectivas y herramientas que favorecen un aprendizaje de calidad.</p>
+        </div>
+        <div class="pilar-card-a3">
+          <div class="pilar-icon-a3">🎓</div>
+          <div class="pilar-title-a3">Estudiantes protagonistas</div>
+          <p class="pilar-desc-a3">Actores activos de su propio aprendizaje, motivados a desarrollar sus habilidades académicas, personales y sociales.</p>
+        </div>
+        <div class="pilar-card-a3">
+          <div class="pilar-icon-a3">👨‍👩‍👧</div>
+          <div class="pilar-title-a3">Familias aliadas</div>
+          <p class="pilar-desc-a3">Aliados fundamentales en el proceso educativo, responsables de acompañar y motivar a sus hijos en su formación integral.</p>
+        </div>
+      </div>
+
+      <div class="acerca-3-cta">
+        <a href="https://wa.me/50684381611" class="btn-amarillo" target="_blank">💬 Conocer más sobre nosotros</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NIVELES -->
+  <section id="niveles">
+    <div class="container-3">
+      <div class="niveles-intro-3">
+        <div class="eyebrow-3">Oferta educativa</div>
+        <h2 class="title-3">Formación completa<br>en una sola institución</h2>
+        <p class="desc-3">Sus hijos pueden crecer con nosotros desde Prekínder hasta Undécimo, siendo parte de la Familia Horizontes toda su etapa escolar.</p>
+      </div>
+      <div class="niveles-row">
+        <div class="nivel-card-3">
+          <div class="nivel-img-3">
+            <img src="preescolar.png" alt="Preescolar Horizontes" />
+            <div class="nivel-ribbon nr-pre">Preescolar</div>
+          </div>
+          <div class="nivel-body-3">
+            <div class="nivel-name-3">Preescolar</div>
+            <div class="nivel-grades-3">Prekínder · Kínder · Preparatoria</div>
+            <div class="nivel-horario-3">7:30 a.m. – 12:00 m.d.</div>
+            <div class="nivel-tags">
+              <span class="ntag">Inglés</span>
+              <span class="ntag">Robótica</span>
+              <span class="ntag">Talleres artísticos</span>
+              <span class="ntag">Fútbol</span>
+            </div>
+            <a href="#contacto" class="nivel-link-3">Conocer más</a>
+          </div>
+        </div>
+        <div class="nivel-card-3">
+          <div class="nivel-img-3">
+            <img src="primaria.png" alt="Primaria Horizontes" />
+            <div class="nivel-ribbon nr-pri">Primaria</div>
+          </div>
+          <div class="nivel-body-3">
+            <div class="nivel-name-3">Primaria</div>
+            <div class="nivel-grades-3">Primero a Sexto grado</div>
+            <div class="nivel-horario-3">7:30 a.m. – 2:30 p.m.</div>
+            <div class="nivel-tags">
+              <span class="ntag">Inglés</span>
+              <span class="ntag">STEAM</span>
+              <span class="ntag">Google Education</span>
+              <span class="ntag">Deportes</span>
+            </div>
+            <a href="#contacto" class="nivel-link-3">Conocer más</a>
+          </div>
+        </div>
+        <div class="nivel-card-3">
+          <div class="nivel-img-3">
+            <img src="secundaria.png" alt="Secundaria Horizontes" />
+            <div class="nivel-ribbon nr-sec">Secundaria</div>
+          </div>
+          <div class="nivel-body-3">
+            <div class="nivel-name-3">Secundaria</div>
+            <div class="nivel-grades-3">Sétimo a Undécimo · Bachillerato Dual</div>
+            <div class="nivel-horario-3">7:30 a.m. – 2:30 p.m.</div>
+            <div class="nivel-tags">
+              <span class="ntag">TOEFL</span>
+              <span class="ntag">Portugués</span>
+              <span class="ntag">Bachillerato Dual</span>
+              <span class="ntag">STEAM</span>
+            </div>
+            <a href="#contacto" class="nivel-link-3">Conocer más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ HORIZONTES -->
+  <section id="razones">
+    <div class="razones-inner">
+      <div class="razones-header">
+        <div>
+          <div class="eyebrow-3">¿Por qué elegirnos?</div>
+          <h2 class="title-3">Todo lo que su familia<br>necesita en un solo lugar</h2>
+          <p class="desc-3" style="margin-bottom:2rem;">Somos mucho más que una institución educativa. Somos una comunidad comprometida con el futuro de cada estudiante.</p>
+          <a href="https://wa.me/50684381611" class="btn-amarillo" target="_blank">Solicitar información por WhatsApp</a>
+        </div>
+        <div class="razones-visual">
+          <div class="rv-img">
+            <img src="pre1.jpg" alt="Preescolar" />
+          </div>
+          <div class="rv-stat">
+            <div class="rv-stat-num">28+</div>
+            <div class="rv-stat-label">años de trayectoria</div>
+          </div>
+          <div class="rv-stat" style="background:var(--azul-claro);">
+            <div class="rv-stat-num" style="color:var(--azul);">1996</div>
+            <div class="rv-stat-label" style="color:var(--azul);">año de fundación</div>
+          </div>
+          <div class="rv-img">
+            <img src="secundaria.png" alt="Secundaria" />
+          </div>
+        </div>
+      </div>
+      <div class="razones-grid">
+        <div class="razon-card">
+          <div class="razon-icon-wrap ri-amarillo">🏫</div>
+          <div class="razon-title">Ambiente familiar y seguro</div>
+          <p class="razon-desc">Una comunidad educativa cercana donde cada estudiante es conocido por nombre y acompañado en su crecimiento.</p>
+        </div>
+        <div class="razon-card">
+          <div class="razon-icon-wrap ri-azul">📚</div>
+          <div class="razon-title">Continuidad PreK a Undécimo</div>
+          <p class="razon-desc">Sus hijos crecen en la misma institución desde el inicio hasta el final de su etapa escolar, con un proyecto educativo coherente.</p>
+        </div>
+        <div class="razon-card">
+          <div class="razon-icon-wrap ri-rojo">🌐</div>
+          <div class="razon-title">Inglés y portugués con certificaciones</div>
+          <p class="razon-desc">Preparación para TOEFL y certificaciones internacionales de portugués, abriendo puertas académicas y profesionales.</p>
+        </div>
+        <div class="razon-card">
+          <div class="razon-icon-wrap ri-amarillo">💻</div>
+          <div class="razon-title">Tecnología y competencias digitales</div>
+          <p class="razon-desc">Certificados por la Universidad de Valladolid como Formadores para la Era Digital. Robótica, STEAM y Google for Education.</p>
+        </div>
+        <div class="razon-card">
+          <div class="razon-icon-wrap ri-azul">🎖️</div>
+          <div class="razon-title">Calidad certificada</div>
+          <p class="razon-desc">Reconocimiento bajo el Modelo Iberoamericano de Gestión de la Calidad por el Instituto Tecnológico de Costa Rica.</p>
+        </div>
+        <div class="razon-card">
+          <div class="razon-icon-wrap ri-rojo">🎓</div>
+          <div class="razon-title">Bachillerato Dual</div>
+          <p class="razon-desc">Los estudiantes de Secundaria pueden optar por un título adicional de bachillerato otorgado por una institución de EE.UU.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN / VISIÓN -->
+  <div class="mision-band">
+    <div class="mision-inner">
+      <div class="mv-card">
+        <div class="mv-label">Nuestra Misión</div>
+        <p class="mv-text">"Formar personas seguras, lógicas, analíticas y creativas, capaces de respetarse a sí mismas y a los demás, utilizar la tecnología como herramienta, comunicarse efectivamente y responder con responsabilidad a las necesidades de su entorno."</p>
+      </div>
+      <div class="mv-card">
+        <div class="mv-label">Nuestra Visión</div>
+        <p class="mv-text">"Ser una institución educativa integral e integradora, comprometida con la formación de seres humanos capaces de desarrollarse en todas sus dimensiones: académica, emocional, artística, social, deportiva, tecnológica y humana."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALORES -->
+  <section id="valores">
+    <div class="valores-intro-3">
+      <div class="eyebrow-3">Formación humana</div>
+      <h2 class="title-3">Los valores que<br>nos definen</h2>
+      <p class="desc-3">En el Centro Educativo Horizontes promovemos una formación basada en valores, para que nuestros estudiantes crezcan como personas íntegras.</p>
+    </div>
+    <div class="valores-row">
+      <div class="valor-card-3">
+        <div class="valor-emoji">🤝</div>
+        <div class="valor-badge vb-1">Pilar fundamental</div>
+        <div class="valor-name-3">Respeto</div>
+        <p class="valor-desc-3">Promovemos el respeto hacia uno mismo, los demás miembros de la comunidad educativa y la sociedad.</p>
+      </div>
+      <div class="valor-card-3">
+        <div class="valor-emoji">⭐</div>
+        <div class="valor-badge vb-2">Pilar fundamental</div>
+        <div class="valor-name-3">Responsabilidad</div>
+        <p class="valor-desc-3">Fomentamos el cumplimiento de deberes consigo mismo, la familia, la sociedad y el medio ambiente.</p>
+      </div>
+      <div class="valor-card-3">
+        <div class="valor-emoji">💎</div>
+        <div class="valor-badge vb-3">Pilar fundamental</div>
+        <div class="valor-name-3">Honestidad</div>
+        <p class="valor-desc-3">Impulsamos una conducta basada en la verdad, la transparencia y la coherencia en todo momento.</p>
+      </div>
+      <div class="valor-card-3">
+        <div class="valor-emoji">❤️</div>
+        <div class="valor-badge vb-4">Pilar fundamental</div>
+        <div class="valor-name-3">Solidaridad</div>
+        <p class="valor-desc-3">Motivamos a nuestros estudiantes a ayudar a quienes lo necesitan con empatía y compromiso humano.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICACIONES -->
+  <div class="certs-band">
+    <div class="certs-inner">
+      <div class="certs-intro">
+        <div class="eyebrow-3">Reconocimientos</div>
+        <h2 class="title-3">Calidad que se<br>puede demostrar</h2>
+        <p class="desc-3">Nuestras certificaciones respaldan el compromiso del Centro Educativo Horizontes con la excelencia académica y la formación integral.</p>
+      </div>
+      <div class="certs-row">
+        <div class="cert-card-3">
+          <div class="cert-badge cb-1">🏅</div>
+          <div class="cert-title-3">Modelo Iberoamericano de Gestión de la Calidad</div>
+          <p class="cert-desc-3">Certificación por la Escuela de Educación Técnica del Instituto Tecnológico de Costa Rica, evaluando gestión institucional, liderazgo, estrategia y atención a la comunidad educativa.</p>
+        </div>
+        <div class="cert-card-3">
+          <div class="cert-badge cb-2">💻</div>
+          <div class="cert-title-3">Certificación Polaris Eduqatia</div>
+          <p class="cert-desc-3">Certificación otorgada por Eduqatia que reconoce la implementación destacada de Progrentis en el desarrollo de destrezas para aprender a aprender, fortaleciendo competencias, autonomía y aprendizaje continuo en nuestros estudiantes.</p>
+        </div>
+        <div class="cert-card-3">
+          <div class="cert-badge cb-3">🌐</div>
+          <div class="cert-title-3">Certificaciones Internacionales de Idiomas</div>
+          <p class="cert-desc-3">TOEFL Junior para inglés y BELT para portugués fortalecen las competencias lingüísticas de nuestros estudiantes, ampliando su proyección internacional y sus oportunidades para optar por becas universitarias en el exterior.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALIADOS EDUCATIVOS -->
+  <section id="aliados">
+    <div class="container-3">
+      <div class="eyebrow-3">Aliados educativos</div>
+    </div>
+    <div class="aliados-ticker-wrap-3">
+      <div class="aliados-ticker-3">
+        <!-- Set 1 -->
+        <div class="aliado-logo-item-3"><img src="aliado-google.png" alt="Google for Education" /></div>
+        <div class="aliado-logo-item-3"><img src="aliado-toelf.png" alt="ETS TOEFL Junior" /></div>
+        <div class="aliado-logo-item-3"><img src="aliado-progrentis.png" alt="Progrentis" /></div>
+        <div class="aliado-logo-item-3"><img src="aliado-tec.png" alt="TEC de Costa Rica" /></div>
+        <!-- Set 2 -->
+        <div class="aliado-logo-item-3"><img src="aliado-google.png" alt="Google for Education" /></div>
+        <div class="aliado-logo-item-3"><img src="aliado-toelf.png" alt="ETS TOEFL Junior" /></div>
+        <div class="aliado-logo-item-3"><img src="aliado-progrentis.png" alt="Progrentis" /></div>
+        <div class="aliado-logo-item-3"><img src="aliado-tec.png" alt="TEC de Costa Rica" /></div>
+        <!-- Set 3 -->
+        <div class="aliado-logo-item-3"><img src="aliado-google.png" alt="Google for Education" /></div>
+        <div class="aliado-logo-item-3"><img src="aliado-toelf.png" alt="ETS TOEFL Junior" /></div>
+        <div class="aliado-logo-item-3"><img src="aliado-progrentis.png" alt="Progrentis" /></div>
+        <div class="aliado-logo-item-3"><img src="aliado-tec.png" alt="TEC de Costa Rica" /></div>
+        <!-- Set 4 -->
+        <div class="aliado-logo-item-3"><img src="aliado-google.png" alt="Google for Education" /></div>
+        <div class="aliado-logo-item-3"><img src="aliado-toelf.png" alt="ETS TOEFL Junior" /></div>
+        <div class="aliado-logo-item-3"><img src="aliado-progrentis.png" alt="Progrentis" /></div>
+        <div class="aliado-logo-item-3"><img src="aliado-tec.png" alt="TEC de Costa Rica" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <div class="cta-final">
+    <div class="cta-final-inner">
+      <h2 class="cta-final-title">¿Listos para ser parte de la Familia Horizontes?</h2>
+      <p class="cta-final-desc">Dé el primer paso hacia una educación de calidad, cercana y comprometida con el futuro de su hijo o hija. Estamos aquí para atenderles.</p>
+      <div class="cta-final-btns">
+        <a href="https://wa.me/50684381611" class="btn-azul" target="_blank">💬 Escribir por WhatsApp</a>
+        <a href="tel:+50624381611" class="btn-rojo-outline">📞 Llamar ahora</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="contacto-3-inner">
+      <div class="contacto-3-info">
+        <div>
+          <div class="eyebrow-3">Contáctenos</div>
+          <h2 class="title-3">Estamos para<br>atenderle con gusto</h2>
+          <p class="desc-3">Visítenos, llámenos o escríbanos. Nuestro equipo administrativo estará feliz de responder todas sus preguntas sobre el proyecto educativo.</p>
+        </div>
+        <div class="info-item-3">
+          <span class="info-label-3">Horario administrativo</span>
+          <span class="info-value-3">Lunes a jueves: 8:00 a.m. – 3:00 p.m.</span>
+          <span class="info-value-3">Viernes: 8:00 a.m. – 2:00 p.m.</span>
+        </div>
+        <div class="info-item-3">
+          <span class="info-label-3">Teléfono</span>
+          <span class="info-value-3"><a href="tel:+50624381611">+506 2438-1611</a></span>
+        </div>
+        <div class="info-item-3">
+          <span class="info-label-3">WhatsApp</span>
+          <span class="info-value-3"><a href="https://wa.me/50684381611" target="_blank">+506 8438-1611</a></span>
+        </div>
+        <div class="info-item-3">
+          <span class="info-label-3">Ubíquenos</span>
+          <span class="info-value-3">San Antonio del Tejar, Alajuela, Costa Rica</span>
+        </div>
+        <div class="info-item-3">
+          <span class="info-label-3">Redes sociales</span>
+          <div class="social-bubbles">
+            <a href="https://www.facebook.com/share/1DSRCYP12W/" class="social-bubble sb-facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.446 18.627 0 12 0S0 5.446 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.954h-1.514c-1.491 0-1.956.932-1.956 1.887v2.281h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/horizontes_cedhori" class="social-bubble sb-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@centroeducativohorizontes496" class="social-bubble sb-youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="map-rounded">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.330859308465!2d-84.24803488885486!3d9.989504673172933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f85efdf5d6b9%3A0xebb392096a23c44f!2sColegio%20Horizontes!5e0!3m2!1ses!2scr!4v1777140327069!5m2!1ses!2scr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-3-bottom">
+      <p>&copy; 2026 Centro Educativo Horizontes · San Antonio del Tejar, Alajuela, Costa Rica</p>
+      <p style="color:var(--amarillo);">La Familia Horizontes 💛</p>
+    </div>
+  </footer>
+
+  <script>
+    const nav3       = document.getElementById('nav-3');
+    const hamburger  = document.getElementById('hamburger-3b');
+    const mobileMenu = document.getElementById('nav-mobile-3');
+    const navLinks   = mobileMenu.querySelectorAll('a');
+    const firstLink  = mobileMenu.querySelector('.nav-links-3 a');
+
+    const closeMenu = () => {
+      nav3.classList.remove('menu-open');
+      document.body.classList.remove('menu-open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Abrir menú');
+      hamburger.focus();
+    };
+
+    const openMenu = () => {
+      nav3.classList.add('menu-open');
+      document.body.classList.add('menu-open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      hamburger.setAttribute('aria-label', 'Cerrar menú');
+      if (window.innerWidth <= 1000) {
+        firstLink?.focus();
+      }
+    };
+
+    hamburger.addEventListener('click', () => {
+      if (nav3.classList.contains('menu-open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 1000) closeMenu();
+      });
+    });
+
+    document.addEventListener('click', event => {
+      if (window.innerWidth > 1000 || !nav3.classList.contains('menu-open')) return;
+      if (!nav3.contains(event.target)) closeMenu();
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && nav3.classList.contains('menu-open')) closeMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1000) closeMenu();
+    });
+  </script>
+
+</body>
+</html>

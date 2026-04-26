@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Centro Educativo Horizontes | La Familia Horizontes</title>
+  <link rel="icon" type="image/png" href="logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
@@ -196,34 +197,6 @@
       background: var(--blanco);
     }
     .btn-azul-outline:hover { background: var(--azul); color: #fff; }
-    .hero-trust {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: .85rem;
-      color: var(--gris);
-      font-weight: 600;
-    }
-    .trust-dots {
-      display: flex;
-    }
-    .trust-dot {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 2px solid #fff;
-      margin-right: -10px;
-      overflow: hidden;
-      background: var(--azul);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .7rem;
-      font-weight: 800;
-      color: #fff;
-    }
-    .trust-dot:nth-child(2) { background: var(--rojo); }
-    .trust-dot:nth-child(3) { background: var(--amarillo-oscuro); color: var(--texto); }
     .hero-img-col { position: relative; padding-bottom: 4rem; }
     .hero-img-main-3 {
       width: 100%;
@@ -238,37 +211,40 @@
       position: absolute;
       bottom: 2rem;
       left: -1.5rem;
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.25rem 1.5rem;
-      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+      background: linear-gradient(135deg, var(--amarillo) 0%, var(--amarillo-oscuro) 100%);
+      border-radius: 50%;
+      width: 130px;
+      height: 130px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 16px 48px rgba(245,183,16,.55), 0 4px 16px rgba(0,0,0,.1);
       z-index: 2;
-      max-width: 220px;
+      border: 3px solid rgba(255,255,255,.6);
+      padding: .5rem;
+    }
+    .hero-float-card::before {
+      content: '🏅';
+      font-size: 1.25rem;
+      display: block;
+      margin-bottom: .1rem;
     }
     .hero-float-card .card-num {
       font-family: 'DM Serif Display', serif;
-      font-size: 2.5rem;
-      color: var(--azul);
+      font-size: 2rem;
+      color: var(--texto);
       line-height: 1;
     }
     .hero-float-card .card-label {
-      font-size: .8rem;
-      font-weight: 700;
-      color: var(--gris);
+      font-size: .55rem;
+      font-weight: 800;
+      color: rgba(28,43,58,.8);
       margin-top: .2rem;
+      line-height: 1.35;
+      max-width: 90px;
     }
-    .hero-float-card-2 {
-      position: absolute;
-      top: 1.5rem;
-      right: -1rem;
-      background: var(--amarillo);
-      border-radius: 16px;
-      padding: 1rem 1.25rem;
-      box-shadow: 0 8px 30px rgba(245,183,16,.4);
-      z-index: 2;
-    }
-    .hero-float-card-2 p { font-size: .78rem; font-weight: 800; color: var(--texto); }
-    .hero-float-card-2 strong { font-size: 1rem; display: block; }
     .hero-deco {
       position: absolute;
       bottom: 3rem;
@@ -361,15 +337,17 @@
       background: var(--crema); border-radius: 20px; padding: 2rem;
       transition: transform .3s, box-shadow .3s, border-color .25s;
       border: 2px solid transparent;
+      text-align: center;
     }
     .pilar-card-a3:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.07); border-color: var(--amarillo); }
     .pilar-icon-a3 {
-      width: 52px; height: 52px; border-radius: 14px;
+      width: 64px; height: 64px; border-radius: 50%;
       background: var(--amarillo); display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; margin-bottom: 1.25rem;
+      font-size: 1.5rem; margin: 0 auto 1.25rem;
     }
     .pilar-title-a3 { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--texto); margin-bottom: .5rem; }
     .pilar-desc-a3 { font-size: .84rem; color: var(--gris); line-height: 1.65; }
+    .pilar-highlight-a3 { font-weight: 800; color: var(--rojo); }
     .acerca-3-cta { text-align: center; }
 
     /* ──────────────── NIVELES ──────────────── */
@@ -513,21 +491,22 @@
     }
     .razon-card:hover { border-color: var(--amarillo); background: #fff; }
     .razon-icon-wrap {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.4rem;
-      margin-bottom: 1.25rem;
+      margin: 0 auto 1.25rem;
     }
     .ri-amarillo { background: var(--amarillo); }
     .ri-azul { background: var(--azul-claro); }
     .ri-rojo { background: #fde8e6; }
     .razon-title {
-      font-size: 1rem;
-      font-weight: 800;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
       color: var(--texto);
       margin-bottom: .5rem;
     }
@@ -548,7 +527,7 @@
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      background: rgba(245,183,16,.12);
+      background: rgba(255,255,255,.08);
     }
     .mision-band::after {
       content: '';
@@ -558,7 +537,7 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      background: rgba(231,51,32,.1);
+      background: rgba(255,255,255,.06);
     }
     .mision-inner {
       max-width: 1200px;
@@ -577,7 +556,7 @@
     }
     .mv-label {
       font-size: .72rem;
-      font-weight: 800;
+      font-weight: 600;
       letter-spacing: .15em;
       text-transform: uppercase;
       color: var(--amarillo);
@@ -588,11 +567,12 @@
     }
     .mv-label::before { content: ''; width: 24px; height: 2px; background: var(--amarillo); }
     .mv-text {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.25rem;
-      font-style: italic;
-      color: rgba(255,255,255,.9);
-      line-height: 1.6;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.05rem;
+      font-style: normal;
+      font-weight: 400;
+      color: rgba(255,255,255,.85);
+      line-height: 1.75;
     }
 
     /* ──────────────── VALORES ──────────────── */
@@ -659,22 +639,26 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      text-align: center;
+      align-items: center;
     }
     .cert-badge {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.3rem;
+      margin: 0 auto;
     }
     .cb-1 { background: var(--amarillo-claro); }
     .cb-2 { background: var(--azul-claro); }
     .cb-3 { background: #fde8e6; }
     .cert-title-3 {
-      font-size: .95rem;
-      font-weight: 800;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
       color: var(--texto);
       line-height: 1.35;
     }
@@ -801,43 +785,38 @@
     .map-rounded { border-radius: 20px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.08); }
     .map-rounded iframe { width: 100%; height: 420px; border: 0; display: block; }
 
+    /* ──────────────── WHATSAPP FLOTANTE ──────────────── */
+    .whatsapp-float {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      width: 58px;
+      height: 58px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      box-shadow: 0 14px 32px rgba(37,211,102,.32);
+      z-index: 320;
+      transition: transform .2s ease, box-shadow .2s ease;
+      text-decoration: none;
+    }
+    .whatsapp-float svg { width: 28px; height: 28px; fill: currentColor; }
+    .whatsapp-float:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px rgba(37,211,102,.38);
+    }
+
+    /* ──────────────── MOBILE SOCIALS ──────────────── */
+    .mobile-socials-3 { display: none; }
+
     /* ──────────────── FOOTER ──────────────── */
     footer {
       background: var(--azul);
       color: rgba(255,255,255,.7);
       padding: 4rem 5% 2rem;
-    }
-    .footer-3-grid {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr;
-      gap: 4rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      margin-bottom: 2rem;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .f3-logo img { height: 50px; filter: brightness(0) invert(1); margin-bottom: 1.2rem; }
-    .f3-about { font-size: .875rem; line-height: 1.7; }
-    .f3-col-h {
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--amarillo);
-      margin-bottom: 1.2rem;
-    }
-    .f3-links { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
-    .f3-links a { color: rgba(255,255,255,.65); text-decoration: none; font-size: .875rem; font-weight: 600; transition: color .2s; }
-    .f3-links a:hover { color: var(--amarillo); }
-    .footer-3-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: .8rem;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
     /* ──────────────── RESPONSIVE ──────────────── */
@@ -901,13 +880,68 @@
         padding: .85rem 2.5rem;
         font-size: 1rem;
       }
+      .mobile-socials-3 {
+        width: min(100%, 420px);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: .75rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(28,43,58,.08);
+      }
+      .mobile-socials-3 span {
+        font-size: .72rem;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: rgba(28,43,58,.5);
+      }
+      .mobile-socials-3-row {
+        display: flex;
+        justify-content: center;
+        gap: .75rem;
+      }
+      .mobile-social-link-3 {
+        width: 44px;
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(0,73,119,.08);
+        border: 1px solid rgba(0,73,119,.12);
+        color: var(--azul);
+        text-decoration: none;
+        transition: background .2s, color .2s;
+      }
+      .mobile-social-link-3:hover { background: var(--azul); color: #fff; }
+      .mobile-social-link-3 svg { width: 20px; height: 20px; fill: currentColor; display: block; }
       #nav-3.menu-open .nav-links-3,
-      #nav-3.menu-open .nav-cta-3 { display: flex; }
+      #nav-3.menu-open .nav-cta-3,
+      #nav-3.menu-open .mobile-socials-3 { display: flex; }
 
       .hamburger-3 { display: flex; }
 
       .hero-inner { grid-template-columns: 1fr; }
-      .hero-img-col { display: none; }
+      .hero-img-col {
+        display: block;
+        padding-bottom: 0;
+        max-width: 520px;
+        margin: 0 auto;
+        width: 100%;
+        order: -1;
+      }
+      .hero-deco,
+      .hero-deco-2 { display: none; }
+      .hero-float-card {
+        bottom: 1.5rem;
+        left: -.5rem;
+        width: 110px;
+        height: 110px;
+      }
+      .hero { overflow: hidden; }
+      .hero-img-main-3 img { aspect-ratio: 5/4; }
       .hero { padding-bottom: 3rem; }
       .hero::after { display: none; }
       .acerca-stats-band-3 { grid-template-columns: 1fr; }
@@ -923,14 +957,11 @@
 
       .certs-row { grid-template-columns: 1fr; }
       .contacto-3-inner { grid-template-columns: 1fr; }
-      .footer-3-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
     }
     @media (max-width: 640px) {
       .topbar { font-size: .72rem; }
       .razones-grid { grid-template-columns: 1fr; }
       .valores-row { grid-template-columns: 1fr; }
-      .footer-3-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-3-bottom { flex-direction: column; gap: .5rem; text-align: center; }
       .hero-buttons { flex-direction: column; }
     }
   </style>
@@ -971,6 +1002,20 @@
         <li><a href="#contacto">Contacto</a></li>
       </ul>
       <a href="https://wa.me/50684381611" class="nav-cta-3" target="_blank">📩 Solicitar información</a>
+      <div class="mobile-socials-3" aria-label="Redes sociales">
+        <span>Síguenos</span>
+        <div class="mobile-socials-3-row">
+          <a href="https://www.facebook.com/share/1DSRCYP12W/" class="mobile-social-link-3" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073C24 5.446 18.627 0 12 0S0 5.446 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.954h-1.514c-1.491 0-1.956.932-1.956 1.887v2.281h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/horizontes_cedhori" class="mobile-social-link-3" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@centroeducativohorizontes496" class="mobile-social-link-3" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
 
     <button class="hamburger-3" id="hamburger-3b" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile-3">
@@ -1044,17 +1089,17 @@
         <div class="pilar-card-a3">
           <div class="pilar-icon-a3">👩‍🏫</div>
           <div class="pilar-title-a3">Docentes comprometidos</div>
-          <p class="pilar-desc-a3">Profesionales con actualización constante, metodologías efectivas y herramientas que favorecen un aprendizaje de calidad.</p>
+          <p class="pilar-desc-a3">Profesionales con <span class="pilar-highlight-a3">actualización constante</span>, metodologías efectivas y herramientas que favorecen un aprendizaje de calidad.</p>
         </div>
         <div class="pilar-card-a3">
           <div class="pilar-icon-a3">🎓</div>
           <div class="pilar-title-a3">Estudiantes protagonistas</div>
-          <p class="pilar-desc-a3">Actores activos de su propio aprendizaje, motivados a desarrollar sus habilidades académicas, personales y sociales.</p>
+          <p class="pilar-desc-a3">Actores activos de su <span class="pilar-highlight-a3">propio aprendizaje</span>, motivados a desarrollar sus habilidades académicas, personales y sociales.</p>
         </div>
         <div class="pilar-card-a3">
           <div class="pilar-icon-a3">👨‍👩‍👧</div>
           <div class="pilar-title-a3">Familias aliadas</div>
-          <p class="pilar-desc-a3">Aliados fundamentales en el proceso educativo, responsables de acompañar y motivar a sus hijos en su formación integral.</p>
+          <p class="pilar-desc-a3">Aliados fundamentales en el proceso educativo, responsables de <span class="pilar-highlight-a3">acompañar y motivar</span> a sus hijos en su formación integral.</p>
         </div>
       </div>
 
@@ -1154,7 +1199,7 @@
             <div class="rv-stat-label" style="color:var(--azul);">año de fundación</div>
           </div>
           <div class="rv-img">
-            <img src="secundaria.png" alt="Secundaria" />
+            <img src="estudiante.png" alt="Secundaria" />
           </div>
         </div>
       </div>
@@ -1166,7 +1211,7 @@
         </div>
         <div class="razon-card">
           <div class="razon-icon-wrap ri-azul">📚</div>
-          <div class="razon-title">Continuidad PreK a Undécimo</div>
+          <div class="razon-title">Continuidad Pre K a Undécimo</div>
           <p class="razon-desc">Sus hijos crecen en la misma institución desde el inicio hasta el final de su etapa escolar, con un proyecto educativo coherente.</p>
         </div>
         <div class="razon-card">
@@ -1177,7 +1222,7 @@
         <div class="razon-card">
           <div class="razon-icon-wrap ri-amarillo">💻</div>
           <div class="razon-title">Tecnología y competencias digitales</div>
-          <p class="razon-desc">Certificados por la Universidad de Valladolid como Formadores para la Era Digital. Robótica, STEAM y Google for Education.</p>
+          <p class="razon-desc">Integramos Robótica, Progrentis, STEAM y Google for Education para fortalecer destrezas digitales y el aprendizaje continuo.</p>
         </div>
         <div class="razon-card">
           <div class="razon-icon-wrap ri-azul">🎖️</div>
@@ -1364,11 +1409,26 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-3-bottom">
-      <p>&copy; 2026 Centro Educativo Horizontes · San Antonio del Tejar, Alajuela, Costa Rica</p>
-      <p style="color:var(--amarillo);">La Familia Horizontes 💛</p>
+    <div style="max-width: 1180px; margin: 0 auto; text-align: center;">
+      <div style="display: flex; justify-content: center; margin-bottom: .95rem;">
+        <img src="logo.png" alt="Centro Educativo Horizontes" style="width: auto; height: 84px; object-fit: contain;" />
+      </div>
+      <p style="max-width: 680px; margin: 0 auto 1.6rem; font-size: .92rem; line-height: 1.75; color: rgba(255,255,255,.72);">
+        Educación privada con calidad, cercanía e innovación para acompañar a cada estudiante en su crecimiento académico y humano.
+      </p>
+      <div style="display: flex; justify-content: center; gap: .75rem; flex-wrap: wrap; margin-bottom: 1.45rem;">
+        <a href="https://www.facebook.com/share/1DSRCYP12W/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; min-width: 120px; padding: .6rem 1rem; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.84); font-size: .78rem; font-weight: 700; text-decoration: none; transition: background .2s;">Facebook</a>
+        <a href="https://www.instagram.com/horizontes_cedhori" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; min-width: 120px; padding: .6rem 1rem; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.84); font-size: .78rem; font-weight: 700; text-decoration: none; transition: background .2s;">Instagram</a>
+        <a href="https://www.youtube.com/@centroeducativohorizontes496" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; min-width: 120px; padding: .6rem 1rem; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.84); font-size: .78rem; font-weight: 700; text-decoration: none; transition: background .2s;">YouTube</a>
+      </div>
+      <div style="width: 72px; height: 2px; margin: 0 auto 1.4rem; background: var(--amarillo);"></div>
+      <p style="font-size: .8rem; color: rgba(255,255,255,.4);">&copy; 2026 Centro Educativo Horizontes · San Antonio del Tejar, Alajuela, Costa Rica</p>
     </div>
   </footer>
+
+  <a href="https://wa.me/50684381611" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 
   <script>
     const nav3       = document.getElementById('nav-3');
